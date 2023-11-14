@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/style1.css" rel="stylesheet" type="text/css">
+    <link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div th:replace="/fragment/header"></div>
+
+<div class="container-fluid">
+<main>
+<h4 class="text-center" style=margin-top:20px>Edit Member</h4>
+
+<form  th:action="@{/editmember{id}(id=${member.id})}" method="post" th:object="${member}" enctype="multipart/form-data" >
+<div class="mb-3 col-5">
+<label for="member_name" class="form-label">Name:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{name}"  />
+ </div>
+
+<div class="mb-3 col-5">
+<label for="member_name" class="form-label">Username:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{username}"  />
+ 
+</div>
+
+<div class="mb-3 col-5">
+<label for="password" class="form-label">Password:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{password}" />
+ 
+</div>
+
+<div class="mb-3 col-5">
+<label for="email" class="form-label">Email:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{email}"  />
+ 
+</div>
+
+<div class="mb-3 col-5">
+<button type="submit" class="btn btn-primary" value="Edit Member">Save</button>
+</div>
+</form>
+</main>
+</div>
+<div th:replace="/fragment/footer"></div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/style1.css" rel="stylesheet" type="text/css">
+    <link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div th:replace="/fragment/header"></div>
+
+<div class="container-fluid">
+<main>
+<div class="h1">Edit Member</div>
+
+<form  th:action="@{/editmember{id}(id=${member.id})}" method="post" th:object="${member}" enctype="multipart/form-data" >
+<div class="mb-3 col-5">
+<label for="member_name" class="form-label">Name:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{name}"  />
+ </div>
+
+<div class="mb-3 col-5">
+<label for="member_name" class="form-label">Username:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{username}"  />
+ 
+</div>
+
+<div class="mb-3 col-5">
+<label for="member_name" class="form-label">Password:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{password}" />
+ 
+</div>
+
+<div class="mb-3 col-5">
+<label for="member_name" class="form-label">Email:</label>
+<input type="text" id="member_name" class="form-control" th:field="*{email}"  />
+ 
+</div>
+<input type="submit" value="Edit Item">
+<button type="submit" class="btn btn-primary" value="Edit Member">Save</button>
+</form>
+</main>
+</div>
+<div th:replace="/fragment/footer"></div>
+
+</body>
+</html>

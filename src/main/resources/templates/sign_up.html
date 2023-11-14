@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOY</title>
+<link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript"
+	src="/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js">
+	
+</script>
+<link href="CSS/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+	rel='stylesheet'>
+</head>
+<body>
+	<div th:replace="/fragment/header"></div>
+
+	<div class="container-fluid">
+		<main>
+			<h3 class="text-center" style="margin-top: 20px">Sign Up</h3>
+            <form class="needs-validation" th:action="@{/signupcustomer}"
+				method="post" th:object="${member}" novalidate>
+				<div class="mb-3 col-5">
+					<label for="member_name" class="form-label">Name:</label> <input
+						type="text" id="member_name" class="form-control"
+						th:field="*{name}" required minlength="3" maxlengteh="10" />
+					<div class=invalid-feedback>Please enter a valid name!</div>
+					<!--   <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p> -->
+				</div>
+
+				<div class="mb-3 col-5">
+					<label for="member_username" class="form-label">Username:</label> <input
+						type="text" id="member_username" class="form-control"
+						th:field="*{username}" required minlength="3" maxlengteh="10" />
+					<div class=invalid-feedback>Please enter a valid username!</div>
+					<p class="text-danger" th:text="${successUsername}" th:if="${successUsername}"></p>
+					<!-- <p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>  -->
+				</div>
+
+				<div class="mb-3 col-5">
+					<label for="member_password" class="form-label">Password:</label> <input
+						type="password" id="member_password" class="form-control"
+						th:field="*{password}" required minlength="3" maxlengteh="10" />
+					<div class=invalid-feedback>Please enter a valid password!</div>
+					<!-- <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p> -->
+				</div>
+
+				<div class="mb-3 col-5">
+					<label for="member_email" class="form-label">Email:</label> <input
+						type="email" id="member_email" class="form-control"
+						th:field="*{email}" required minlength="3" maxlengteh="10" />
+					<div class=invalid-feedback>Please enter a valid Email!</div>
+					<!-- <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p> -->
+				</div>
+				<div class="mb-3 col-5">
+					<button type="submit" class="btn btn-outline-primary">Register</button>
+				</div>
+			</form>
+		</main>
+	</div>
+	<div th:replace="/fragment/footer"></div>
+
+	<!-- form validation -->
+	<script type="text/javascript">
+		'use strict'
+		var form = document.querySelector('.needs-validation')
+		form.addEventListener('submit', function(event) {
+			if (!form.checkValidity()) {
+				event.preventDefault()
+				event.stopPropagation()
+			}
+			form.classList.add('was-validated')
+		})
+	</script>
+	<!-- End Form Validation -->
+</body>
+</html>

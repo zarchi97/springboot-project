@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOY</title>
+<link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+	<script type="text/javascript"
+	src="/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js">
+	
+</script>
+<link href="CSS/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+	rel='stylesheet'>
+</head>
+
+<body>
+  
+<!-- nav start -->
+<div th:replace="/fragment/header"></div>
+<!-- nav end -->
+
+<div class="container-fluid" id="product-card">
+  <h2 class="text-center"></h2>
+  <div class="row"> 
+  <div class="col-3" th:each="item:${itemList}">
+    <div class="card">
+        <img th:src="@{/uploads/items/{id}/{img}(id=${item.id},img=${item.imgName})}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="text-center" th:text="${item.name}">
+         <!--  <a th:href="@{/item{id}(id=${item.id})}" th:text="${item.name}"></a> --></h5>
+         <h6 class="text-center" th:text="'$ '+${item.price}"></h6>
+	<div class="star text-center" >
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bx-star'></i>
+        <i class='bx bx-star'></i>
+    </div>
+         <br>
+		 <!-- <button class="btn btn-dark btn-outline-info" type="submit">View Detail</button> -->
+		  <a class="btn btn-dark btn-outline-info" style=margin-left:70px th:href="@{/detailitem{id}(id=${item.id})}" role="button">View Detail</a>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<div th:replace="/fragment/footer"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOY</title>
+<link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+	<script type="text/javascript"
+	src="/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js">
+	
+</script>
+<link href="CSS/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+	rel='stylesheet'>
+</head>
+<body>
+
+
+
+<!-- nav start -->
+	<div th:replace="/fragment/header"></div>
+		<!-- nav end -->
+ <div class="container-fluid">
+<h3 class="text-center" style=margin-top:20px>View Items</h3>
+
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Name</th>
+<th>Color</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Size</th>
+<th>Image</th>
+<th sec:authorize="hasRole('ADMIN')">Action</th>
+</tr>
+</thead>
+
+<tbody>
+<th:block th:each=" item: ${listItems}">
+<tr>
+<td th:text="${item.category.name}"></td>
+<td><a th:href="@{/item{id}(id=${item.id})}" th:text="${item.name}"></a></td>
+<td th:text="${item.color}"></td>
+<td th:text="${item.price}"></td>
+<td th:text="${item.quantity}"></td>
+<td th:text="${item.size}"></td>
+<td>
+ <img alt="item"
+			th:src="@{/uploads/items/{id}/{imageName}(id=${item.id},imageName=${item.imgName})}" width=30px > </td>
+<td sec:authorize="hasRole('ADMIN')">
+
+<a class="btn btn-success" th:href="@{edititem{id}(id=${item.id})}" role="button">Edit</a>
+<a class="btn btn-danger" th:href="@{deleteitem{id}(id=${item.id})}" role="button">Delete</a>
+</td>
+</tr>
+</th:block>
+</tbody>
+</table>
+
+<br>
+<a class="btn btn-outline-info" th:href="@{/addItem}" role="button" sec:authorize="hasRole('ADMIN')">Add Item</a>
+</div>
+<div th:replace="/fragment/footer"></div>
+</body>
+</html>

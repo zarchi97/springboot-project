@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOY</title>
+<link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+	<script type="text/javascript"
+	src="/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js">
+	
+</script>
+<link href="CSS/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+	rel='stylesheet'>
+
+</head>
+<body>
+
+	<div th:replace="/fragment/header"></div>
+	
+	<div class="container-fluid">
+		<h3 class="text-center" style="margin-top: 20px">View Member</h3>
+		<div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Username</th>
+					<th>Email</th>
+					<th>Role</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:each="member : ${listMembers}">
+					<tr>
+						<td th:text="${member.id}"></td>
+						<td th:text="${member.name}"></td>
+						<td th:text="${member.username}"></td>
+						<td th:text="${member.email}"></td>
+						<td th:text="${member.role}"></td>
+						<td><a class="btn btn-success"
+							th:href="@{/editmember{id}(id=${member.id})}" role="button">Edit</a>
+							<a class="btn btn-danger"
+							th:href="@{/deletemember{id}(id=${member.id})}" role="button">Delete</a>
+
+						</td>
+					</tr>
+				</th:block>
+			</tbody>
+		</table>
+		<br> <a class="btn btn-outline-info" th:href="@{/addmember}"
+			role="button">Add Member</a>
+
+	</div>
+
+ <div th:replace="/fragment/footer"></div>
+</body>
+</html>

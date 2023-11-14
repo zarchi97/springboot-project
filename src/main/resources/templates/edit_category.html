@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOY</title>
+<link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+	<script type="text/javascript"
+	src="/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js">
+	
+</script>
+<link href="CSS/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+	rel='stylesheet'>
+</head>
+<body>
+	
+	
+<!-- nav start -->
+	<div th:replace="/fragment/header"></div>
+		<!-- nav end -->
+	<div class="container-fluid"> 
+		<main>
+			<h4 class="text-center" style=margin-top:20px>Edit Category</h4>
+			<form id="label" th:action="@{/editsavecategory{id}(id=${category.id})}" method="post"  th:object="${category}" >
+			<div class="mb-3 col-5">
+				<label for="cat"  class="form-label">Category:</label>
+				<input type="text" class="form-control" th:field="*{name}"/>
+				</div>
+				<div class="mb-3 col-5">
+				<button type="submit" class="btn btn-outline-info">Save</button>
+				</div>
+			</form>
+		</main>
+	</div> 
+	<div th:replace="/fragment/footer"></div>
+
+
+</body>
+</html>

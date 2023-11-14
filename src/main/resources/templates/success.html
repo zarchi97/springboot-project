@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOY</title>
+<link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+	<script type="text/javascript"
+	src="/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js">
+	</script>
+	<script
+src="https://www.paypal.com/sdk/js?client-id=ARUE8-PP9N7zEK5hXlxXUQaonfa4r27z6EqWm-L2b3EKJKMb7JRWO84SvjFxnEHM-2f-B-SjDere-cQC&currency=USD&components=buttons&debug=true">
+</script>
+<link href="CSS/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+	rel='stylesheet'>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div th:replace="fragment/header"></div>
+		<main>
+		
+		<div class="container ">
+				<div th:text="${success}" class="text-center h4" style=margin-top:20px></div>
+				<div class="row mb-5 text-start">
+					<div class="col-4">
+					<p style="background-color: #FDFD96">Order ID: <span th:text="${orderId}"></span><br> Transaction ID: <span th:text="${transactionId}"></span></p>
+					</div>
+				
+				<table>
+
+					<thead>
+						<tr>
+						<!-- <th>ID</th> -->
+							<th>Customer Name</th>
+							<th>Order Item</th>
+							<th>Image</th>
+							<th>Price</th>
+							<th>Quantity</th>
+							<th>Color</th>
+						    <th>Subtotal</th> 
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:each="cartItem : ${cartItemList}">
+							<tr>
+								<!--  <td th:text="${cartItem.id}"></td> -->
+								 <td th:text="${cartItem.member.name}"></td>
+						         <td th:text="${cartItem.item.name}"></td>
+								<td><img width="100px" th:src="@{/uploads/items/{id}/{imageName}(id=${cartItem.item.id}, imageName=${cartItem.item.imgName})}"></td>
+								<td th:text="'$'+${cartItem.item.price}"></td>
+								<td th:text="${cartItem.quantity}"></td>
+								<td th:text="${cartItem.color}"></td>
+								
+								<td th:text="'$'+${cartItem.subtotal}"></td>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
+				</div>
+			</div>
+		
+		
+		
+		<!-- <div class="container">
+			<div th:text="${success}" class="text-center h4" style=margin-top:20px></div>
+		</div>
+			<div class="container ">
+				
+				<div class="row mb-5 text-start">
+					<div class="col-4">
+					<p style="background-color: #FDFD96">Order ID: <span th:text="${orderId}"></span><br> Transaction ID: <span th:text="${transactionId}"></span></p>
+					</div>
+				</div>
+				<div class="row">
+					shopping cart
+					<div class="col-18">
+						<div class="container ">
+							shopping cart items header
+							<div class="row m-3 border-top border-bottom fs-5">
+								<div class="col-3">ITEMS</div>
+								<div class="col-3">PRICE</div>
+								<div class="col-4">QUANTITY</div>
+								<div class="col-4">COLOR</div>
+								<div class="col-4">SUBTOTAL</div>
+							</div>
+							shopping cart rows
+							<div class="row m-3 border-bottom"
+								th:each="cartItem : ${cartItemList}">
+								Item name, description, image
+								<div class="col-3 mb-3">
+									<h5 th:text="${cartItem.item.name}"></h5>
+									<p th:text="${cartItem.item.description}"></p>
+									<img width="100px"
+										th:src="@{/uploads/items/{id}/{imageName}(id=${cartItem.item.id}, imageName=${cartItem.item.imgName})}">
+								</div>
+								Item quantity, price, links
+								<div class="col align-self-center"
+									th:text="'$'+${cartItem.item.price}"></div>
+								<div class="col-4 align-self-center" th:text="${cartItem.quantity}">
+									
+								</div>
+								<div class="col-4 align-self-center" th:text="${cartItem.color}">
+									
+								</div>
+								<div class="col align-self-center"
+									th:text="'$'+${cartItem.subtotal}"></div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div> -->
+		</main>
+		<div th:replace="fragment/footer"></div>
+	</div>
+</body>
+</html>
+

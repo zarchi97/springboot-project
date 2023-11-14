@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOY</title>
+<link href="/bootstrap-5.3.1-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+	<script type="text/javascript"
+	src="/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js">
+	
+</script>
+<link href="CSS/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+	rel='stylesheet'>
+</head>
+<body>
+<div th:replace="/fragment/header"></div>
+
+<div class="container-fluid">
+		<form class="needs-validation" th:action="@{/login}" method="post" novalidate>
+			<h3 class="text-center" style="margin-top: 20px">Please Login</h3>
+			<div class="mb-3 col-5" id="login">
+				<div th:if="${param.error}" class="alert alert-danger">
+					Invalid username and password.</div>
+			</div>
+			<div class="mb-3 col-5" id="login">
+				<div th:if="${param.logout}" class="alert alert-success">You
+					have been logged out.</div>
+			</div>
+			<div class="mb-3 col-5" id="login">
+				<label for="username" class="form-label">Username</label> <input
+					type="text" id="username" class="form-control" name="username" required/>
+					 <div class=invalid-feedback>Please enter username!</div>
+			</div>
+			<div class="mb-3 col-5" id="login">
+				<label for="password" class="form-label">Password</label> <input
+					type="password" id="password" class="form-control" name="password" required/>
+					 <div class=invalid-feedback>Please enter password!</div>
+			</div>
+			<div class="mb-3 col-5" id="login">
+			<span>Don't have an account?<a th:href="@{/signup}">Register Now</a></span>
+				<button type="submit" class="btn btn-outline-primary">Login</button>
+			</div>
+			
+		</form>
+	</div>
+
+<div th:replace="/fragment/footer"></div>
+<script type="text/javascript">
+'use strict'
+var form = document.querySelector('.needs-validation')
+form.addEventListener('submit',function(event){
+if(!form.checkValidity()){
+event.preventDefault()
+event.stopPropagation()
+}
+form.classList.add('was-validated')
+})
+</script> 
+</body>
+</html>

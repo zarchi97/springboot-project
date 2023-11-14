@@ -1,0 +1,339 @@
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family:'Roboto', sans-serif;
+  }
+.navbar{
+    background-color:darkorange;
+    height: 70px;
+    font-size: 16px;
+}
+.navbar h4{
+    color: black;
+    font-weight: bold;
+    margin-left: 20px;
+   }
+.nav-item .nav-link{
+color: white;
+font-weight: bold;
+margin-left: 10px;
+transition: 0.5s ease;
+}
+.nav-item .nav-link:hover{
+color: black; 
+}
+ .nav-item.btn nav-link{
+    color: white;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: 0.5s ease;
+    }
+    .nav-item.btn nav-link:hover{
+    color: black; 
+    }  
+.dropdown-menu{
+background-color:darkorange;
+}
+.dropdown-menu:hover{
+color:white;
+ 
+}
+
+/* home */
+ .home{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/cov19.png);
+    background-repeat:no-repeat; 
+    background-size:cover;
+    background-position: right; 
+    padding-top: 100px;
+    padding-left: 50px;
+    } 
+    .content h5{
+    text-shadow: 1px 1px 0px black;
+    font-weight:bold ;
+    color:#400080;
+    }
+    .content h2{
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    color:darkblue;
+    }
+    .content h6{
+        color: darkblue;
+      }
+      .changecontent::after{
+        content: ' '; 
+        color: darkorange;
+        text-shadow: 1px 1px 1px black;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+       animation-timing-function: linear; 
+       animation-name: changetext; 
+      }
+      @keyframes changetext{
+        0%{content: "Bags";}
+         50%{content:"Shoes and Heels";}
+        100%{content: "Watch";}
+      }
+    /*   .btn1{
+      margin-top: 10px;
+      font-weight: bold;
+      width: 120px;
+      height: 38px;
+      border: 2px solid rgb(192, 192, 192);
+      background-color: darkblue;
+      border-radius: 30px;
+      }
+      .btn1:hover{
+      background-color:white;
+      color:black;
+      } */   
+.btn1{
+margin-top: 20px;
+font-weight: bold;
+width: 120px;
+height: 38px;
+border: 2px solid darkblue;
+border-radius: 30px;
+
+}
+.btn1:hover{
+background-color: darkblue;
+color: white;
+}
+/* home */
+/* top caed */
+#top-card.card{
+margin-top: 30px;
+}
+.card{
+box-shadow:0px 5px 10px black;
+width: auto; 
+transition: 2s;
+}
+.card:hover{
+width:270px;
+}
+/* top card */
+
+/* product card */
+#product-card{
+margin-top: 20px;
+}
+#product-card h3{
+margin-top: 20px;
+color: darkblue;
+font-weight: bold;
+padding-bottom:30px ; 
+text-shadow: 1px 1px 0px black;
+}
+#product-card .row{
+	margin-bottom:10px;
+}
+.col-3{
+    margin-top: 10px; 
+ }
+.card h5{
+  color: darkblue;
+  font-weight: bold;
+}
+.card h6{
+    color:darkslateblue;
+    font-weight:bold;
+}
+.bxs-star{
+color: orange;
+}
+.bi-cart-fill{
+    color: darkblue;
+    margin-left: 52px;
+}
+   #viewmorebtn{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    text-decoration: none;
+    margin-top: 20px;
+    width: 120px;
+    height: 38px;
+    color:black;
+    background: transparent;
+    font-weight: bold;
+    border: 2px solid darkblue;
+    transition: .5s;
+    padding-top:4px;
+    border-radius:30px
+    }
+    #viewmorebtn:hover{
+    background-color: darkblue;
+    color: white;
+    } 
+    /* product card */
+/* about */
+#about{
+    margin-top: 20px;
+  }
+  h3{
+    text-align: center;
+    font-weight: bold;
+    color: darkblue;
+    text-shadow: 1px 1px 1px black;
+  }
+  #about .card{
+  width: auto; 
+transition: 2s;
+  }
+   #about.card:hover{
+width:270px;
+}
+  
+  /* about */
+  
+  /* order */
+  .text-center button{
+    width: 120px;
+    height: 33px;
+    font-weight: bold;
+    background: transparent;
+    color: darkblue;
+    border: 2px solid darkblue ;
+    letter-spacing: 2px;
+    margin-top: 20px;
+  }
+  .text-center button:hover{
+    background-color: darkblue;
+    color: white;
+  }
+  #order .row{
+  align-content: center;
+  justify-content: center;
+  }
+  #order h2{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: darkblue;
+  text-shadow: 1px 1px 1px black;
+  } 
+  .mb-3{
+  color:darkblue;
+  } 
+  #order h3{
+    padding-top: 30px;
+    color: darkblue;
+  } 
+  /* order */
+  
+  #offer{
+   margin-left: 150px; 
+  } 
+  #offer .bx bxl-cart {
+   margin-left:auto;
+  }
+  #offer i{
+  font-size: 60px;
+  color:darkblue;
+  }
+  #offer h5{
+    font-weight: bold;
+  }
+  .bx bxl-cart {
+  color:darkblue;
+  size-adjust: 30px;
+  }
+  .bx bxl-envelope{
+  color:darkblue;
+  }
+  .bx bxl-like{
+  color:darkblue;
+  }
+  
+  .bx bxl-phone{
+  color:white;
+  }
+  .bx bxl-envelope{
+  color:white;
+  }
+  .bx bxl-location-plus{
+  color: white;
+  }
+.social  .bx {
+color:white;
+font-size: 30px;
+font-weight: 500;
+}
+  #footer{
+  padding-top: 30px;
+  padding-left: 80px;
+  color: white;
+  font-weight: bold;
+  background-color:darkslateblue;
+  }
+  #footer span{
+    font-size: 14px;
+    font-weight:600;
+  }
+  .copyright{
+  text-align:center;
+  }
+.col-5{
+	margin-left:30px;
+}
+.welcome{
+	margin-top:20px;
+}
+ .single{
+margin-left:150px;
+}
+ .single li{
+ list-style-type:square;
+ } 
+/* .btn-primary{
+	color:#8080c0;
+} */
+table{
+/* border-collapse:collapse; */
+width:100%;	
+box-shadow:-1px  rgba(0,0,0,0.5);
+}
+table,th,td{
+	padding:4px; 
+	border:2px solid lightgray;
+	cursor:pointer;
+}
+
+th,td{
+	text-align:center;
+}
+th{
+	background-color:blue;
+	color:white;
+}
+tr:nth-child(even){
+	background-color:lightblue;
+}
+tr:nth-child(even):hover{
+	background-color:dodgerblue;
+	color:white;
+	
+}
+.message{
+text-align:center;
+color:#ff0000;	
+}
+.bxs-happy-heart-eyes{
+	color:rgb(128,0,128);
+	font-size:32px;
+}
+.bxs-heart{
+	color:#8000ff;
+	font-size:28px;
+}
+#login{
+	margin-left:120px;
+}
+.qty{
+	margin-top:90px;
+}
